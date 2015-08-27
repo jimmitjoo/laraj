@@ -53,17 +53,12 @@ class CMSController extends Controller
         // Set environment variable to user provided information
         $environment = file_get_contents( base_path() . '/.env');
         $environment = preg_replace('#\SITENAME[^\b\s]+#', 'SITENAME=' . $request->get('SITENAME'), $environment);
+        $environment = preg_replace('#\INDEX_VIEW[^\b\s]+#', 'INDEX_VIEW=index', $environment);
         $environment = preg_replace('#\DB_HOST[^\b\s]+#', 'DB_HOST=' . $request->get('DB_HOST'), $environment);
         $environment = preg_replace('#\DB_DATABASE[^\b\s]+#', 'DB_DATABASE=' . $request->get('DB_DATABASE'), $environment);
         $environment = preg_replace('#\DB_USERNAME[^\b\s]+#', 'DB_USERNAME=' . $request->get('DB_USERNAME'), $environment);
         $environment = preg_replace('#\DB_PASSWORD[^\b\s]+#', 'DB_PASSWORD=' . $request->get('DB_PASSWORD'), $environment);
         file_put_contents( base_path() . '/.env', $environment);
-
-
-        // Change blade file for front-page
-        $welcome = file_get_contents( app_path() . '/Http/routes.php');
-        $welcome = str_replace("view('welcome');", "view('index');", $welcome);
-        file_put_contents(  app_path() . '/Http/routes.php', $welcome);
 
 
         return redirect('install/show');

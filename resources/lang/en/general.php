@@ -4,6 +4,7 @@
 
 return [
     'connect' => 'Connect',
+    'create_admin_user' => 'Create a new admin user',
     'database' => 'Database',
     'email' => 'Email',
     'host' => 'Host',

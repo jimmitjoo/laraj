@@ -1,6 +1,6 @@
 @extends('master.master')
 
-@section('title', getenv('SITENAME'))
+@section('title', env('SITENAME', 'Laraj'))
 
 @section('content')
 
