@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="valign-container">
         <div class="content">
 
             <div class="title">{!! getenv('SITENAME') !!}</div>
