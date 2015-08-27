@@ -22,7 +22,7 @@ Route::resource('/install', 'CMSController');
 
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('auth/login', ['as' => 'getLogin', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 

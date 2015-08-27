@@ -113,6 +113,6 @@ class CMSController extends Controller
     }
 
     public function goToLogin(){
-        return redirect('/auth/login');
+        return redirect(route('getLogin'));
     }
 }
