@@ -3,3 +3,4 @@ What do we need to do for the user?
 
 - npm install
 - start gulp
+- migrate database
