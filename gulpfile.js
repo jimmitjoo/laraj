@@ -1,5 +1,5 @@
 var elixir = require('laravel-elixir');
-
+require('laravel-elixir-livereload');
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -11,6 +11,14 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
+var npm_path = '../../../node_modules';
+
+elixir(function (mix) {
     mix.sass('app.scss');
+    mix.scripts([
+        npm_path + '/jquery/dist/jquery.js',
+        npm_path + '/bootstrap-sass/assets/javascripts/bootstrap.js',
+        'app.js'
+    ]);
+    mix.livereload();
 });
