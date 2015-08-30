@@ -32,7 +32,9 @@ class PagesController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        $pages = Page::all();
+
+        return view('pages.create')->with(['pages' => $pages]);
     }
 
     /**
@@ -66,7 +68,7 @@ class PagesController extends Controller
     {
         $page = Page::find($id);
 
-        if ($page->page_type == 'page') return view('pages.show')->with(['page' => $page]);
+        if (isset($page->page_type) && $page->page_type == 'page') return view('pages.show')->with(['page' => $page]);
 
         return view('pages.show-'.$page->page_type)->with(['page' => $page]);
     }
@@ -79,7 +81,11 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page = Page::find($id);
+
+        $pages = Page::all();
+
+        return view('pages.edit')->with(['page' => $page, 'pages' => $pages]);
     }
 
     /**
@@ -91,7 +97,17 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'content' => 'required',
+            'page_type' => 'required',
+            'state' => 'required'
+        ]);
+
+        $page = Page::find($id);
+        $page->update($request->all());
+
+        return redirect()->back();
     }
 
     /**

@@ -8,6 +8,8 @@ return [
     'create_admin_user' => 'Create a new admin user',
     'database' => 'Database',
     'draft' => 'Draft',
+    'edit' => 'Edit',
+    'edit_page' => 'Edit page',
     'email' => 'Email',
     'host' => 'Host',
     'install' => 'Install',

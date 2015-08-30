@@ -12,8 +12,19 @@ class Page extends Model
         'title',
         'content',
         'page_type',
-        'state'
+        'state',
+        'parent_id'
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo('App\Page', 'parent_id', 'id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany('App\Page', 'parent_id', 'id');
+    }
 
     public function getPublishTimeAttribute() {
         $date = ($this->publish_at != null) ? $this->publish_at : $this->created_at;
