@@ -18,7 +18,9 @@ Route::get('/home', function(){
     return view('home');
 });
 
+
 Route::resource('/install', 'CMSController');
+Route::resource('/pages', 'PagesController');
 
 
 // Authentication routes...

@@ -1,7 +1,9 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35",
+    "moment": "~2.10.6"
   },
   "dependencies": {
     "laravel-elixir": "^2.0.0",

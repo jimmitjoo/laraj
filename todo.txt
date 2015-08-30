@@ -1,6 +1,6 @@
 What do we need to do for the user?
 
-
+- composer update
 - npm install
 - start gulp
 - migrate database

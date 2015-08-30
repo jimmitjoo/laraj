@@ -18,7 +18,10 @@ elixir(function (mix) {
     mix.scripts([
         npm_path + '/jquery/dist/jquery.js',
         npm_path + '/bootstrap-sass/assets/javascripts/bootstrap.js',
+        npm_path + '/moment/min/moment.min.js',
+        npm_path + '/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
         'app.js'
     ]);
+    mix.copy('node_modules/bootstrap-sass/assets/fonts', 'public/fonts');
     mix.livereload();
 });

@@ -6,5 +6,17 @@
     <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="/css/app.css" type="text/css">
+
+    @if (Auth::user())
+        <style>
+            body {
+                padding-top: 70px;
+            }
+        </style>
+    @endif
 </head>
 <body>
+
+@if (Auth::user())
+    @include('partials.adminmenu')
+@endif

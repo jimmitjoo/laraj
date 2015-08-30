@@ -19,7 +19,9 @@
             </div>
 
             <form action="/install" method="post">
-                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
+                {!! csrf_field() !!}
+
                 <div class="form-group">
                     <label for="SITENAME">{!! Lang::get('general.sitename') !!}</label>
                     <input class="form-control" type="text" id="SITENAME" name="SITENAME"
