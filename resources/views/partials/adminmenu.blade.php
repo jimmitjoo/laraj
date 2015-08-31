@@ -15,12 +15,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="/home">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">{!! Lang::get('general.new') !!} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <li><a href="{!! route('pages.index') !!}">{!! Lang::get('general.list_pages') !!}</a></li>
                         <li><a href="{!! route('pages.create') !!}">{!! Lang::get('general.new_page') !!}</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">{!! Lang::get('general.new_page_type') !!}</a></li>

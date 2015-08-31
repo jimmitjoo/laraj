@@ -3,6 +3,7 @@
 // Order by key!
 
 return [
+    'children' => 'Children',
     'connect' => 'Connect',
     'content' => 'Content',
     'create_admin_user' => 'Create a new admin user',
@@ -17,6 +18,7 @@ return [
         'complete_cheer' => 'Wohooo! Installation complete!',
         'need_correct_credentials_message' => 'You will have to pass the correct database credentials to install.',
     ],
+    'list_pages' => 'List pages',
     'login' => 'Login',
     'logout' => 'Log out',
     'name' => 'Name',
@@ -24,6 +26,7 @@ return [
     'new_page' => 'New Page',
     'new_page_type' => 'New pagetype',
     'new_post' => 'New Post',
+    'parent' => 'Parent',
     'password' => 'Password',
     'password_confirmation' => 'Password confirmation',
     'post' => 'Post',
@@ -34,6 +37,7 @@ return [
     'remember_me' => 'Remember me',
     'scheduled' => 'Scheduled',
     'sitename' => 'Sitename',
+    'state' => 'State',
     'title' => 'Title',
     'username' => 'Username',
     'version' => 'Version',

@@ -14,6 +14,10 @@
             }
         </style>
     @endif
+
+    @if (isset($page) && isset($page->slug))
+        <link rel="canonical" href="/{!! $page->slug !!}" />
+    @endif
 </head>
 <body>
 

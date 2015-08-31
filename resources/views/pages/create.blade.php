@@ -24,6 +24,11 @@
                            placeholder="{!! Lang::get('general.title') !!}">
                 </div>
                 <div class="form-group">
+                    <label for="slug">{!! Lang::get('general.slug') !!}</label>
+                    <input class="form-control" type="text" id="slug" name="slug"
+                           placeholder="{!! Lang::get('general.slug') !!}">
+                </div>
+                <div class="form-group">
                     <textarea class="form-control" rows="15" name="content"
                               placeholder="{!! Lang::get('general.content') !!}"></textarea>
                 </div>

@@ -8,12 +8,8 @@ class Page extends Model
 {
     protected $table = 'pages';
 
-    protected $fillable = [
-        'title',
-        'content',
-        'page_type',
-        'state',
-        'parent_id'
+    protected $guarded = [
+        'id'
     ];
 
     public function parent()
@@ -26,12 +22,14 @@ class Page extends Model
         return $this->hasMany('App\Page', 'parent_id', 'id');
     }
 
-    public function getPublishTimeAttribute() {
+    public function getPublishTimeAttribute()
+    {
         $date = ($this->publish_at != null) ? $this->publish_at : $this->created_at;
         return date('Y-m-d H:i', strtotime($date));
     }
 
-    public function getPublishRawTimeAttribute() {
+    public function getPublishRawTimeAttribute()
+    {
         $date = ($this->publish_at != null) ? $this->publish_at : $this->created_at;
         return date('Y-m-d H:i:s', strtotime($date));
     }

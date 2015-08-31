@@ -11,10 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view(env('INDEX_VIEW', 'welcome'));
-});
-Route::get('/home', function(){
+use App\Page;
+$page = Page::where('slug', '=', '')->orWhere('slug', '=', '/')->first();
+
+// If there are no page that should be startpage, use a default one
+if (!$page) {
+    Route::get('/', function () {
+        return view(env('INDEX_VIEW', 'welcome'));
+    });
+}
+// If there is a page that should act as startpage, then redirect to that one
+else {
+    Route::get('/', function () {
+        $page = Page::where('slug', '=', '')->orWhere('slug', '=', '/')->first();
+        return view('pages.show')->with(['page' => $page]);
+    });
+}
+
+
+Route::get('/home', function () {
     return view('home');
 });
 
@@ -37,4 +52,6 @@ Route::get('/user', 'CMSController@goToLogin');
 Route::get('/admin', 'CMSController@goToLogin');
 Route::get('/login', 'CMSController@goToLogin');
 Route::get('/wp-{all}', 'CMSController@goToLogin');
+
+Route::get('{slug}', ['as' => 'slugRoute', 'uses' => 'PagesController@showBySlug']);
 
