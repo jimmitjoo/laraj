@@ -33,6 +33,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::group(['prefix' => 'api'], function(){
+    Route::put('pages/{id}', 'PagesController@apiUpdate');
+});
+
 
 Route::resource('/install', 'CMSController');
 Route::resource('/pages', 'PagesController');

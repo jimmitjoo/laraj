@@ -13,10 +13,14 @@
                 padding-top: 70px;
             }
         </style>
+        @if (isset($page))
+            <meta id="page-id" name="page-id" content="{!! $page->id !!}">
+            <meta id="csrf-token" name="csrf-token" content="{!! csrf_token() !!}">
+        @endif
     @endif
 
     @if (isset($page) && isset($page->slug))
-        <link rel="canonical" href="/{!! $page->slug !!}" />
+        <link rel="canonical" href="/{!! $page->slug !!}"/>
     @endif
 </head>
 <body>

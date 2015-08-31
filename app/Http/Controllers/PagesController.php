@@ -108,17 +108,20 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required',
-            'page_type' => 'required',
-            'state' => 'required'
-        ]);
-
-        $page = $this->page->find($id);
-        $page->update($request->all());
+        $this->updatePage($request, $id);
 
         return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     */
+    public function apiUpdate(Request $request, $id)
+    {
+        $page = $this->updatePage($request, $id);
+
+        return response()->json($page);
     }
 
     /**
@@ -144,5 +147,24 @@ class PagesController extends Controller
         if (isset($page->page_type) && $page->page_type == 'page') return view('pages.show')->with(['page' => $page]);
 
         return view('pages.show-' . $page->page_type)->with(['page' => $page]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return mixed
+     */
+    private function updatePage(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+            'content' => 'required',
+            'page_type' => 'required',
+            'state' => 'required'
+        ]);
+
+        $page = $this->page->find($id);
+        $page->update($request->all());
+        return $page;
     }
 }
